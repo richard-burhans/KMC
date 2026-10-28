@@ -1539,19 +1539,7 @@ template <unsigned SIZE> KMC::Stage2Results CKMC<SIZE>::ProcessStage2_impl()
 	bool is_xeon = proc_name.find("xeon") != string::npos;
 	if (is_xeon || (is_intel && at_least_avx))
 	{
-		if (CCpuInfo::AVX2_Enabled())
-			sort_func = RadulsSort::RadixSortMSD_AVX2<CKmer<SIZE>>;
-		else if (CCpuInfo::AVX_Enabled())
-			sort_func = RadulsSort::RadixSortMSD_AVX<CKmer<SIZE>>;
-		else if (CCpuInfo::SSE41_Enabled())
-			sort_func = RadulsSort::RadixSortMSD_SSE41<CKmer<SIZE>>;
-		else if (CCpuInfo::SSE2_Enabled())
-			sort_func = RadulsSort::RadixSortMSD_SSE2<CKmer<SIZE>>;
-		else
-		{
-			//probably never because x64 always supports sse2 as far as I know
-			std::cerr << "Error: At least SSE2 must be supported\n";
-		}
+		sort_func = RadulsSort::RadixSortMSD_SSE2<CKmer<SIZE>>;
 	}
 	else
 	{

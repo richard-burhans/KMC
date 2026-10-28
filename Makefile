@@ -108,10 +108,7 @@ ifeq ($(D_ARCH),ARM64)
 	$(KMC_MAIN_DIR)/raduls_neon.o
 else
 	RADULS_OBJS = \
-	$(KMC_MAIN_DIR)/raduls_sse2.o \
-	$(KMC_MAIN_DIR)/raduls_sse41.o \
-	$(KMC_MAIN_DIR)/raduls_avx2.o \
-	$(KMC_MAIN_DIR)/raduls_avx.o
+	$(KMC_MAIN_DIR)/raduls_sse2.o
 endif
 endif
 
@@ -152,12 +149,6 @@ $(KMC_CLI_OBJS) $(KMC_CORE_OBJS) $(KMC_DUMP_OBJS) $(KMC_API_OBJS) $(KFF_OBJS) $(
 
 $(KMC_MAIN_DIR)/raduls_sse2.o: $(KMC_MAIN_DIR)/raduls_sse2.cpp
 	$(CC) $(CFLAGS) -msse2 -c $< -o $@
-$(KMC_MAIN_DIR)/raduls_sse41.o: $(KMC_MAIN_DIR)/raduls_sse41.cpp
-	$(CC) $(CFLAGS) -msse4.1 -c $< -o $@
-$(KMC_MAIN_DIR)/raduls_avx.o: $(KMC_MAIN_DIR)/raduls_avx.cpp
-	$(CC) $(CFLAGS) -mavx -c $< -o $@
-$(KMC_MAIN_DIR)/raduls_avx2.o: $(KMC_MAIN_DIR)/raduls_avx2.cpp
-	$(CC) $(CFLAGS) -mavx2 -c $< -o $@
 
 $(KMC_MAIN_DIR)/raduls_neon.o: $(KMC_MAIN_DIR)/raduls_neon.cpp
 	$(CC) $(CFLAGS) -c $< -o $@

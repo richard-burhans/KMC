@@ -753,16 +753,13 @@ namespace RadulsSort
 		}
 	}
 
-#if defined(__AVX2__)
-#define RADULS_RADIX_SORT_FUNNAME RadixSortMSD_AVX2
-#elif defined (__AVX__)
-#define RADULS_RADIX_SORT_FUNNAME RadixSortMSD_AVX
-#elif defined(__SSE4_1__)
-#define RADULS_RADIX_SORT_FUNNAME RadixSortMSD_SSE41
-#elif defined(__SSE2__)
-#define RADULS_RADIX_SORT_FUNNAME RadixSortMSD_SSE2
-#elif defined(__aarch64__)
+// One variant per architecture. The x86 name stays SSE2 even if a global -march enables more.
+#if defined(__aarch64__)
 #define RADULS_RADIX_SORT_FUNNAME RadixSortMSD_NEON
+#elif defined(__x86_64__) || defined(_M_X64) || defined(__i386__) || defined(_M_IX86)
+#define RADULS_RADIX_SORT_FUNNAME RadixSortMSD_SSE2
+#else
+#error "RADULS: unsupported architecture"
 #endif
 
 

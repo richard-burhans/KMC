@@ -226,20 +226,6 @@
     <ClCompile Include="kmc_runner.cpp" />
     <ClCompile Include="kmer.cpp" />
     <ClCompile Include="mem_disk_file.cpp" />
-    <ClCompile Include="raduls_avx.cpp">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/arch:AVX %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/arch:AVX %(AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="raduls_avx2.cpp">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/arch:AVX2
--D__AVX2__ %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/arch:AVX2
--D__AVX2__ %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/arch:AVX2
--D__AVX2__ %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">/arch:AVX2
--D__AVX2__ %(AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
     <ClCompile Include="raduls_neon.cpp" />
     <ClCompile Include="raduls_sse2.cpp">
       <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotSet</EnableEnhancedInstructionSet>
@@ -247,10 +233,6 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/arch:sse2 -D__SSE2__ %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/arch:sse2 -D__SSE2__ %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">/arch:sse2 -D__SSE2__ %(AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="raduls_sse41.cpp">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/arch:sse2 -D__SSE4_1__ %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/arch:sse2 -D__SSE4_1__ %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClCompile Include="rev_byte.cpp" />
     <ClCompile Include="splitter.cpp" />

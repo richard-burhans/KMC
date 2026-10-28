@@ -28,16 +28,7 @@
     <ClCompile Include="mem_disk_file.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="raduls_avx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="raduls_avx2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="raduls_sse2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="raduls_sse41.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="rev_byte.cpp">

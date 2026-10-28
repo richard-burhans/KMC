@@ -24,15 +24,6 @@ namespace RadulsSort
 #ifndef __aarch64__
 	template<typename KMER_T>
 	void RadixSortMSD_SSE2(KMER_T* kmers, KMER_T* tmp, uint64 n_recs, uint32 byte, uint32 n_threads, CMemoryPool* pmm_radix_buf);
-
-	template<typename KMER_T>
-	void RadixSortMSD_SSE41(KMER_T* kmers, KMER_T* tmp, uint64 n_recs, uint32 byte, uint32 n_threads, CMemoryPool* pmm_radix_buf);
-
-	template<typename KMER_T>
-	void RadixSortMSD_AVX(KMER_T* kmers, KMER_T* tmp, uint64 n_recs, uint32 byte, uint32 n_threads, CMemoryPool* pmm_radix_buf);
-
-	template<typename KMER_T>
-	void RadixSortMSD_AVX2(KMER_T* kmers, KMER_T* tmp, uint64 n_recs, uint32 byte, uint32 n_threads, CMemoryPool* pmm_radix_buf);
 #else
 	template<typename KMER_T>
 	void RadixSortMSD_NEON(KMER_T* kmers, KMER_T* tmp, uint64 n_recs, uint32 byte, uint32 n_threads, CMemoryPool* pmm_radix_buf);
